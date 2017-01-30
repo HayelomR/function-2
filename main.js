@@ -28,9 +28,9 @@ ADVANCED TRACK: 10-13
 
 
 
-// 2. Create a new function called minimum3(), 
+// 2. Create a new function called minimum3(),
 //    to find the smallest of three numbers,
-//    input by a user, 
+//    input by a user,
 //    and the smallest displayed within the HTML page.
 
 
@@ -40,14 +40,27 @@ ADVANCED TRACK: 10-13
 //    i.e. sum([1, 2, 3, 4]) should return 10.
 
 
-
+// function sum(number) {
+//   var number = ['1','2','3','4']
+//   return x + y;
+// }
+//
+//
+// document.getElementById("q3").innerHTML = number;
+//
 
 
 // 4. Declare a function called multiply() that takes an array of numbers and multiplies them together.
 //    i.e. multiply([1, 2, 3, 4]) should return 24.
 
-
-
+function multiply(array){
+  var product = 1
+  for (var i = 0; i<array.length){
+    product*array[i];
+  }
+  return product;
+}
+document.getElementById('q4').innerHTML= product;
 
 
 
@@ -84,8 +97,8 @@ var words = ["window", "table", "cup", "knife", "barstool", "glass", "charger", 
 
 
 // 9. http://games.usvsth3m.com/javascript-under-pressure/
-//    Have fun with these! 
-//    Get as far as you can and record your progress and time. 
+//    Have fun with these!
+//    Get as far as you can and record your progress and time.
 //    We'll try this again in a few weeks!
 
 
@@ -122,10 +135,3 @@ var words = ["window", "table", "cup", "knife", "barstool", "glass", "charger", 
 //     it will prompt the user to enter another guess and tell the user if the guess was
 //     too high or too low. This continues until the correct guess is entered.
 //     When the correct guess is entered the user is given a success message with the correct number.
-
-
-
-
-
-
-

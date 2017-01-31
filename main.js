@@ -13,7 +13,7 @@ please use console.log("Question #") to declare the
 problem number being solved followed by console.log(yourAnswer) after each question.
 
 For any methods that we didn't cover, please refer to the Functions Documentation.
-https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Functions
+// https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Functions
 
 BASIC TRACK: 1-9
 ADVANCED TRACK: 10-13
@@ -23,52 +23,79 @@ ADVANCED TRACK: 10-13
 // 1. Without using Math.min(), write a function called minimum(),
 //    that takes two numbers from a user,
 //    and outputs the smaller number into the HTML page.
-
-
-
-
-
+function minimum(num1, num2) {
+  if(num1 > num2) {
+    return num1 + " is larger than " + num2;
+  } else if(num2 > num1) {
+    return num2 + " is larger than " + num1;
+  } else {
+    return "Those numbers are equal."
+  }
+};
+document.getElementById('q1').innerHTML = minimum(1,2);
 // 2. Create a new function called minimum3(),
 //    to find the smallest of three numbers,
 //    input by a user,
 //    and the smallest displayed within the HTML page.
 
-
+function minimumOf3(num1, num2, num3) {
+  if (num1 >= num2 && num1 >= num3) {
+    return num1 + " is largest.";
+  } else if (num2 >= num1 && num2 >= num3) {
+    return num2 + " is largest.";
+  } else if (num3 >= num1 && num3 >= num2) {
+    return num3 + " is largest";
+  } else {
+    return "I'm not sure";
+  }
+};
+document.getElementById('q2').innerHTML = minimumOf3(1,2,3);
 
 
 // 3. Declare a function called sum() that takes an array of numbers as an argument adds them together and displays the result within the HTML page.
 //    i.e. sum([1, 2, 3, 4]) should return 10.
+function sum(numArray) {
+  var total = 0;
+  for (i=0; i<numArray.length; i++) {
+    total += numArray[i];
+  }
+  return total + " is the total";
+};
 
+document.getElementById('q3').innerHTML = sum([12,14,15]);
 
-// function sum(number) {
-//   var number = ['1','2','3','4']
-//   return x + y;
-// }
-//
-//
-// document.getElementById("q3").innerHTML = number;
-//
 
 
 // 4. Declare a function called multiply() that takes an array of numbers and multiplies them together.
 //    i.e. multiply([1, 2, 3, 4]) should return 24.
 
-function multiply(array){
-  var product = 1
-  for (var i = 0; i<array.length){
-    product*array[i];
+function sum(numArray) {
+  var total = 1;
+  for(i=0; i<numArray.length; i++) {
+    total *= numArray[i];
   }
-  return product;
-}
-document.getElementById('q4').innerHTML= product;
+  return total + " is the total.";
+};
 
-
+document.getElementById('q4').innerHTML = sum([1,2,3,4]);
+//
+//
 
 // 5. Write a function called filterSixPlus() that takes the following array and removes words
 //    that are less than six characters.
 var words = ["window", "table", "cup", "knife", "barstool", "glass", "charger", "outlet"];
 
+function filterSixPlus(array) {
+  for (i=0; i<array.length; i++) {
+    if (array[i].length < 6) {
+      array.splice(i, 1);
+      i--;
+    }
+  }
+  return array;
+}
 
+document.getElementById('q5').innerHTML = (filterSixPlus(words));
 
 
 
@@ -76,7 +103,18 @@ var words = ["window", "table", "cup", "knife", "barstool", "glass", "charger", 
 // 6. Use a function to ask a user for a temperature in Celsius and converts it to Fahrenheit.
 //    HINT: You may need to use parseFloat to convert the user's string input to a float.
 
+var userInput = prompt("Please enter a degree to convert.");
 
+function getFarenheitFromC(userInput) {
+  // userInput = userInput;
+  console.log("userinput=", userInput)
+  userInput *= 1.8;
+  userInput += 32;
+  value = userInput.toFixed(0);
+  return value;
+}
+
+document.getElementById('q6').innerHTML = (getFarenheitFromC(userInput));
 
 
 
@@ -84,14 +122,46 @@ var words = ["window", "table", "cup", "knife", "barstool", "glass", "charger", 
 // 7. Adding to the code in #6, ask the user a second time to determine whether they'd like to convert from Fahrenheit to Celsius
 //    or from Celsius to Fahrenheit. To keep it simple, instruct them to use "F to C" or "C to F".
 //    Display an error if they do not follow the rules.
-
-
+//
+// var userChoice = prompt("Please choose to convert Fahrenheit to Celsius by typing 'F to C' or Celsius to Fahrenheit by typing 'C to F'");
+//
+// function f2COrC2F(userChoice) {
+//   if (userChoice === "C to F") {
+//     var userInput = prompt("Please enter the degree.");
+//     userInput = parseFloat(userInput);
+//     userInput *= 1.8;
+//     userInput += 32;
+//     value = userInput.toFixed(0);
+//     return value;
+//   } else if (userChoice === "F to C") {
+//     var userInput = prompt("Please enter the degree.");
+//     userInput = parseFloat(userInput);
+//     userInput -= 32;
+//     userInput /= 1.8;
+//     value = userInput.toFixed(0);
+//     return value;
+//   } else {
+//     userChoice = prompt("You didn't pick F to C or C to F. TRY AGAIN!")
+//     f2COrC2F(userChoice);
+//   }
+// }
+//
+// document.getElementById('q7').innerHTML = f2COrC2F(userChoice);
 
 
 // 8. Write a function countBs() that takes a string as its only argument and returns
 //    a number that indicates how many uppercase “B” characters are in the string.
 //    HINT: Google charAt()
+function countBs(string) {
+  var count = 0;
+  for (i=0; i<string.length; i++) {
+    if (string.charAt(i) === "B");
+      count += 1;
+  }
+  return count;
+}
 
+document.getElementById("q8").innerHTML = countBs("BBBBBBabbling babies are usually named Bonnie");
 
 
 
@@ -110,7 +180,16 @@ var words = ["window", "table", "cup", "knife", "barstool", "glass", "charger", 
 // ADVANCED TRACK
 // 10. Write a function called countChars() that behaves like countBs(), except it takes a
 //     second argument that indicates what character is to be counted.
-
+// function countChar(string, char) {
+//   var count = 0;
+//   for (i=0; i<string.length; i++) {
+//     if (string[i] === char)
+//       count += 1;
+//   }
+//   return count;
+// }
+//
+// document.getElementById('q10').innerHTML = countChar("javascript-under-pressure", "e"));
 
 
 
